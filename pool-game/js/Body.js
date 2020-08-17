@@ -6,9 +6,17 @@ cj.Body = function(asset, sizePos, velocity) {
     this.gCtx = cj.gCtx;
     this.asset = asset;
     this.sizePos = Object.assign({}, this.defaultSizePos, sizePos);
+    this.updateOrigin();
 };
 
 Object.assign(cj.Body.prototype, {
+    updateOrigin: function() {
+        this.origin = {
+            x: this.sizePos.x + this.sizePos.w/2,
+            y: this.sizePos.y + this.sizePos.h/2,
+        };    
+    },
+
     draw: function() {
         this.gCtx.drawImage(this.asset, this.sizePos.x, this.sizePos.y, this.sizePos.w, this.sizePos.h);
     },
@@ -23,6 +31,7 @@ Object.assign(cj.Body.prototype, {
         newPos.x += this.velocity.x;
         newPos.y += this.velocity.y;
         Object.assign(this.sizePos, newPos);
+        this.updateOrigin();
         this.velocity.x *= this.accel.x;
         this.velocity.y *= this.accel.y;
     }
