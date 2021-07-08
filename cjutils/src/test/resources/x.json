@@ -1,0 +1,21 @@
+{
+    "tenants": [{
+        "scopeId": 1234,
+        "orgAcro": "ackro1",
+        "name": "KpCorp",
+        "users": [{
+            "userId": "Jimbo"
+        },{
+            "userId": "Jimbo"
+        }],
+        "banks": [{
+            "scopeId": "1235",
+            "orgAcro": "ackro2",
+            "name": "Kp-Peanuts"
+        },{
+            "scopeId": 1236,
+            "orgAcro": "ackro3",
+            "name": "Kp-Sprouts"
+        }]
+    }] 
+}
