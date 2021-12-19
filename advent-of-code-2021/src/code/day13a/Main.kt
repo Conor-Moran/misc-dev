@@ -5,8 +5,8 @@ import java.lang.Integer.max
 import kotlin.math.min
 
 fun main() {
-    doIt("Day 13a Part 1: Test Input", "src/code/day13a/test.input", part1)
-    doIt("Day 13a Part 2: Real Input", "src/code/day13a/part1.input", part1);
+    doIt("Day 13a Part 2: Test Input", "src/code/day13a/test.input", part2)
+    doIt("Day 13a Part 2: Real Input", "src/code/day13a/part1.input", part2);
 }
 
 fun doIt(msg: String, input: String, calc: (nums: List<String>) -> String) {
@@ -16,7 +16,7 @@ fun doIt(msg: String, input: String, calc: (nums: List<String>) -> String) {
     println(String.format("%s: Ans: %s", msg , calc(lines)))
 }
 
-val part1: (List<String>) -> String = { lines ->
+val part2: (List<String>) -> String = { lines ->
     val input = parse(lines)
     val points = mutableSetOf<Point>()
     points.addAll(input.points)
@@ -37,7 +37,7 @@ fun grid(points: Set<Point>): Grid {
         maxY = max(maxY, point.y)
     }
 
-    val g = Array(maxX + 1) { Array<Char>(maxY + 1) { '.' } }
+    val g = Array(maxX + 1) { Array<Char>(maxY + 1) { ' ' } }
     for (point in points) {
         g[point.x][point.y] = '#'
     }
