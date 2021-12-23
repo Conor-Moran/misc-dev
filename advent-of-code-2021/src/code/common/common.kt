@@ -50,3 +50,13 @@ fun <E> perms(elems: List<E>): List<List<E>> {
 
     return ret
 }
+
+fun <T> twoDimIterate(data: Array<Array<T>>, fn: (T, Boolean, Int, Int) -> Unit) {
+    for (i in data.indices) {
+        var isNewLine = true
+        for(j in data.indices) {
+            fn(data[i][j], isNewLine, i, j)
+            isNewLine = false
+        }
+    }
+}
